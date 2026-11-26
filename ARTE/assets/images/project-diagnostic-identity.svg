@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="diag-title diag-desc">
+  <title id="diag-title">Veda Diagnostics Brand and Digital Portal Concept</title>
+  <desc id="diag-desc">Diagnostic report sleeve, wayfinding system, and digital test booking card concept for Veda Diagnostics.</desc>
+  <rect width="800" height="600" fill="#F7F5EF"/>
+  <rect x="36" y="36" width="728" height="528" fill="none" stroke="#172C38" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="64" y="82" fill="#C99A72" font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="3">HEALTHCARE IDENTITY SYSTEM · CONCEPT SPECIMEN</text>
+  <text x="64" y="118" fill="#172C38" font-family="Manrope, sans-serif" font-size="28" font-weight="700">Veda Diagnostics &amp; Lab</text>
+
+  <!-- Left: Embossed Report Sleeve -->
+  <rect x="64" y="156" width="290" height="368" fill="#172C38"/>
+  <rect x="88" y="182" width="242" height="316" fill="none" stroke="#A8BFB2" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="209" cy="280" r="34" fill="none" stroke="#C99A72" stroke-width="1.5"/>
+  <path d="M194 280 H224 M209 265 V295" stroke="#A8BFB2" stroke-width="2"/>
+  <text x="209" y="352" text-anchor="middle" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="18" font-weight="700" letter-spacing="3">VEDA LAB</text>
+  <text x="209" y="376" text-anchor="middle" fill="#A8BFB2" font-family="DM Sans, sans-serif" font-size="12">DIAGNOSTIC REPORT DOSSIER</text>
+  <line x1="128" y1="452" x2="290" y2="452" stroke="#C99A72" stroke-opacity="0.6" stroke-width="1"/>
+  <text x="209" y="474" text-anchor="middle" fill="#F7F5EF" fill-opacity="0.7" font-family="DM Sans, sans-serif" font-size="11">PATIENT CLARITY · CHENNAI</text>
+
+  <!-- Right Top: Patient Portal Card -->
+  <rect x="382" y="156" width="354" height="218" fill="#FFFFFF" stroke="#172C38" stroke-opacity="0.16"/>
+  <rect x="382" y="156" width="354" height="44" fill="#A8BFB2" fill-opacity="0.3"/>
+  <text x="404" y="184" fill="#172C38" font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">DIGITAL TEST BOOKING PORTAL</text>
+  <text x="404" y="232" fill="#172C38" font-family="Manrope, sans-serif" font-size="18" font-weight="700">Home Sample Collection</text>
+  <text x="404" y="256" fill="#303B40" font-family="DM Sans, sans-serif" font-size="13">Clear test preparation steps &amp; slot selection</text>
+  <rect x="404" y="280" width="146" height="32" fill="#172C38"/>
+  <text x="477" y="300" text-anchor="middle" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="11" font-weight="600">Select Diagnostic Panel</text>
+  <rect x="562" y="280" width="150" height="32" fill="none" stroke="#C99A72"/>
+  <text x="637" y="300" text-anchor="middle" fill="#172C38" font-family="Manrope, sans-serif" font-size="11" font-weight="600">Download Report Guide</text>
+  <text x="404" y="348" fill="#303B40" font-family="DM Sans, sans-serif" font-size="11">High-legibility typography · Accessible contrast</text>
+
+  <!-- Right Bottom: Colour & Wayfinding System -->
+  <rect x="382" y="394" width="354" height="130" fill="#A8BFB2" fill-opacity="0.28" stroke="#172C38" stroke-opacity="0.14"/>
+  <text x="404" y="426" fill="#172C38" font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">WAYFINDING &amp; BRAND SYSTEM</text>
+  <rect x="404" y="446" width="52" height="52" fill="#172C38"/>
+  <rect x="466" y="446" width="52" height="52" fill="#A8BFB2"/>
+  <rect x="528" y="446" width="52" height="52" fill="#F7F5EF" stroke="#172C38" stroke-opacity="0.2"/>
+  <rect x="590" y="446" width="52" height="52" fill="#C99A72"/>
+  <rect x="652" y="446" width="60" height="52" fill="#303B40"/>
+</svg>
+
