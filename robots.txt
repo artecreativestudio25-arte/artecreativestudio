@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artecreativestudio25-arte.github.io/Arte/sitemap.xml

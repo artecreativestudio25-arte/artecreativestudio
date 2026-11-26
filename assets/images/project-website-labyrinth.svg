@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="lab-title lab-desc">
+  <title id="lab-title">Labyrinth Narratives — Independent Film Company Website</title>
+  <desc id="lab-desc">Website showcase preview for Labyrinth Narratives, an independent film company based in Chennai, India, specializing in documentaries and cinema.</desc>
+  <rect width="800" height="600" fill="#172C38"/>
+  <rect x="34" y="34" width="732" height="532" fill="#303B40" fill-opacity="0.45" stroke="#A8BFB2" stroke-opacity="0.35"/>
+
+  <!-- Browser Chrome -->
+  <rect x="54" y="54" width="692" height="492" rx="4" fill="#172C38" stroke="#F7F5EF" stroke-opacity="0.22"/>
+  <rect x="54" y="54" width="692" height="40" fill="#303B40"/>
+  <circle cx="80" cy="74" r="5" fill="#C99A72"/>
+  <circle cx="98" cy="74" r="5" fill="#A8BFB2"/>
+  <circle cx="116" cy="74" r="5" fill="#F7F5EF" fill-opacity="0.4"/>
+  <rect x="220" y="63" width="360" height="22" rx="2" fill="#172C38" stroke="#A8BFB2" stroke-opacity="0.3"/>
+  <text x="400" y="78" text-anchor="middle" fill="#A8BFB2" font-family="DM Sans, sans-serif" font-size="11">https://labyrinthnarratives.in/</text>
+
+  <!-- Cinema Grid Backdrop -->
+  <line x1="200" y1="94" x2="200" y2="546" stroke="#A8BFB2" stroke-opacity="0.08"/>
+  <line x1="400" y1="94" x2="400" y2="546" stroke="#A8BFB2" stroke-opacity="0.08"/>
+  <line x1="600" y1="94" x2="600" y2="546" stroke="#A8BFB2" stroke-opacity="0.08"/>
+
+  <!-- Hero Content Inside Browser -->
+  <text x="96" y="152" fill="#C99A72" font-family="Manrope, sans-serif" font-size="11" font-weight="700" letter-spacing="3">CHENNAI, INDIA · INDEPENDENT FILM COMPANY</text>
+  <text x="96" y="206" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="38" font-weight="700">Labyrinth Narratives</text>
+  <text x="96" y="242" fill="#A8BFB2" font-family="DM Sans, sans-serif" font-size="16">Specializing in Documentaries &amp; Independent Cinema</text>
+  <line x1="96" y1="268" x2="260" y2="268" stroke="#C99A72" stroke-width="2"/>
+
+  <!-- Film Frame Cards -->
+  <rect x="96" y="302" width="194" height="196" fill="#303B40" stroke="#A8BFB2" stroke-opacity="0.35"/>
+  <rect x="112" y="318" width="162" height="106" fill="#172C38" stroke="#C99A72" stroke-opacity="0.5"/>
+  <polygon points="184,356 208,371 184,386" fill="#C99A72"/>
+  <text x="112" y="452" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="13" font-weight="700">FEATURE CINEMA</text>
+  <text x="112" y="474" fill="#A8BFB2" font-family="DM Sans, sans-serif" font-size="11">Independent Storytelling</text>
+
+  <rect x="308" y="302" width="194" height="196" fill="#303B40" stroke="#A8BFB2" stroke-opacity="0.35"/>
+  <rect x="324" y="318" width="162" height="106" fill="#172C38" stroke="#A8BFB2" stroke-opacity="0.4"/>
+  <circle cx="405" cy="371" r="22" fill="none" stroke="#A8BFB2" stroke-width="1.5"/>
+  <circle cx="405" cy="371" r="6" fill="#C99A72"/>
+  <text x="324" y="452" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="13" font-weight="700">DOCUMENTARIES</text>
+  <text x="324" y="474" fill="#A8BFB2" font-family="DM Sans, sans-serif" font-size="11">Non-Fiction &amp; Archives</text>
+
+  <rect x="520" y="302" width="184" height="196" fill="#172C38" stroke="#C99A72" stroke-opacity="0.7"/>
+  <text x="540" y="346" fill="#C99A72" font-family="Manrope, sans-serif" font-size="11" font-weight="700" letter-spacing="2">WEBSITE BUILD</text>
+  <text x="540" y="380" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="18" font-weight="700">Live Studio</text>
+  <text x="540" y="404" fill="#F7F5EF" font-family="Manrope, sans-serif" font-size="18" font-weight="700">Showcase</text>
+  <rect x="540" y="438" width="144" height="36" fill="#C99A72"/>
+  <text x="612" y="460" text-anchor="middle" fill="#172C38" font-family="Manrope, sans-serif" font-size="11" font-weight="700">LABYRINTHNARRATIVES.IN</text>
+</svg>
+
