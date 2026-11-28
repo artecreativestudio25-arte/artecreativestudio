@@ -40,19 +40,19 @@ const CONCEPT_PROJECTS = {
       'Paired compassionate clinical visuals with bold typographic headlines, clean awareness icons, and balanced white/dark contrast.',
     images: [
       {
-        src: 'assets/portfolio/1.jpg',
+        src: '/assets/portfolio/1.jpg',
         alt: 'Heart Health Awareness creative — Your Heart Works 24/7 (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/4.png',
+        src: '/assets/portfolio/4.png',
         alt: 'World Hospice and Palliative Care Day social creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/5.png',
+        src: '/assets/portfolio/5.png',
         alt: 'World Sight Day eye care awareness creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/12.jpg',
+        src: '/assets/portfolio/12.jpg',
         alt: 'World Rabies Day preventive healthcare creative (brand blurred for privacy)'
       }
     ]
@@ -70,23 +70,23 @@ const CONCEPT_PROJECTS = {
       'Combined newspaper-style print concepts, architectural facility visuals, Google Search intent hooks, and compassionate care dioramas.',
     images: [
       {
-        src: 'assets/portfolio/2.png',
+        src: '/assets/portfolio/2.png',
         alt: 'Dialysis Care in Siruseri newspaper feature creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/7.png',
+        src: '/assets/portfolio/7.png',
         alt: 'Dialysis Unit launch composite creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/8.png',
+        src: '/assets/portfolio/8.png',
         alt: 'Dialysis Services miniature room awareness creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/9.png',
+        src: '/assets/portfolio/9.png',
         alt: 'Hassle-Free Dialysis Unit campaign visual (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/10.png',
+        src: '/assets/portfolio/10.png',
         alt: 'Local search Dialysis Near Siruseri social creative (brand blurred for privacy)'
       }
     ]
@@ -104,15 +104,15 @@ const CONCEPT_PROJECTS = {
       'Blended clean 3D medical storytelling, clear benefit badges, and structured consultation calls to action.',
     images: [
       {
-        src: 'assets/portfolio/6.png',
+        src: '/assets/portfolio/6.png',
         alt: 'Mako robotic-assisted joint replacement creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/11.png',
+        src: '/assets/portfolio/11.png',
         alt: 'Robotic-assisted surgery precision creative (brand blurred for privacy)'
       },
       {
-        src: 'assets/portfolio/3.png',
+        src: '/assets/portfolio/3.png',
         alt: 'Paediatrics big care for little hearts campaign creative (brand blurred for privacy)'
       }
     ]
@@ -131,7 +131,7 @@ const CONCEPT_PROJECTS = {
       'Crafted an atmospheric, story-first web experience showcasing independent cinema, documentary work, and direct studio contact.',
     images: [
       {
-        src: 'assets/images/project-website-labyrinth.svg',
+        src: '/assets/images/project-website-labyrinth.svg',
         alt: 'Labyrinth Narratives independent film company website preview'
       }
     ]
@@ -149,15 +149,15 @@ const CONCEPT_PROJECTS = {
       'Paired Deep Navy wordmarks with Warm Ivory cotton stationery, Soft Sage appointment cards, and subtle Muted Copper foil accents.',
     images: [
       {
-        src: 'assets/images/project-branding-dental.jpg',
+        src: '/assets/images/project-branding-dental.jpg',
         alt: 'Aarav Dental Studio stationery and identity flatlay concept'
       },
       {
-        src: 'assets/images/hero-showcase.jpg',
+        src: '/assets/images/hero-showcase.jpg',
         alt: 'Aarav Dental Studio brand guidelines and studio overview concept'
       },
       {
-        src: 'assets/images/studio-workspace.jpg',
+        src: '/assets/images/studio-workspace.jpg',
         alt: 'Colour palette and material swatches used for Aarav Dental Studio'
       }
     ]
@@ -225,15 +225,15 @@ function initMobileNavigation() {
 }
 
 /**
- * Smooth Scrolling for Same-Page Anchor Links
+ * Smooth Scrolling for Same-Page Utility Anchor Links (e.g. Skip Link)
  */
 function initSmoothScrolling() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    const rawHref = anchor.getAttribute('href');
+    if (!rawHref || rawHref === '#' || rawHref.startsWith('#/')) return;
     anchor.addEventListener('click', (event) => {
-      const targetId = anchor.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-      const targetEl = document.querySelector(targetId);
+      const targetEl = document.getElementById(rawHref.slice(1));
       if (!targetEl) return;
 
       event.preventDefault();
@@ -471,62 +471,301 @@ function initMagneticCursor() {
 }
 
 /**
- * Fluid Page-Transition Curtain for Internal Links
+ * Route Metadata for Internal Single-Page Routing
  */
-function initPageTransitions() {
+const ROUTE_META = {
+  home: {
+    title: 'ARTE Creative Studio | Creative & Digital Studio in Chennai',
+    description:
+      'ARTE Creative Studio in Chennai builds brand identities, social media content, video reels, and websites for healthcare clinics and modern businesses.'
+  },
+  about: {
+    title: 'About | ARTE Creative Studio in Chennai',
+    description:
+      'Meet ARTE Creative Studio in Chennai — our story, vision, mission, and core values behind purposeful branding and healthcare digital strategy.'
+  },
+  services: {
+    title: 'Services | ARTE Creative Studio — Branding, Websites, Reels & Growth',
+    description:
+      'Explore branding, social media management, video reels, websites, and digital marketing solutions crafted by ARTE Creative Studio in Chennai.'
+  },
+  healthcare: {
+    title: 'Healthcare Solutions | ARTE Creative Studio Chennai',
+    description:
+      'Ethical branding, clinical social media, doctor introduction videos, and hospital or clinic websites designed by ARTE Creative Studio.'
+  },
+  portfolio: {
+    title: 'Our Work | ARTE Creative Studio Portfolio',
+    description:
+      'Explore client healthcare campaigns, live web projects including Labyrinth Narratives, and curated studio concepts by ARTE Creative Studio.'
+  },
+  contact: {
+    title: 'Contact | ARTE Creative Studio — Request a Custom Proposal',
+    description:
+      'Start a conversation with ARTE Creative Studio in Chennai via our enquiry form, email, phone, WhatsApp, or Instagram.'
+  },
+  privacy: {
+    title: 'Privacy Policy | ARTE Creative Studio',
+    description:
+      'Read how ARTE Creative Studio handles enquiry form details and studio communications respectfully.'
+  },
+  terms: {
+    title: 'Terms of Service | ARTE Creative Studio',
+    description:
+      'Review website usage terms, intellectual property notes, and engagement conditions for ARTE Creative Studio.'
+  },
+  404: {
+    title: 'Page Not Found | ARTE Creative Studio',
+    description:
+      'The requested view on ARTE Creative Studio could not be found. Return to Home, Services, Our Work, or Contact.'
+  }
+};
+
+const SITE_ORIGIN = 'https://artecreativestudio.vercel.app';
+
+function parseAppRoute(pathname = '/', searchStr = '', hashStr = '') {
+  const validRoutes = new Set(Object.keys(ROUTE_META));
+  let cleanPath = (pathname || '/').replace(/\/+$/, '').toLowerCase();
+
+  if (cleanPath === '/index.html' || cleanPath === '') {
+    cleanPath = '/';
+  }
+
+  let route = 'home';
+  if (cleanPath !== '/') {
+    const candidate = cleanPath.replace(/^\/+/, '');
+    route = validRoutes.has(candidate) ? candidate : '404';
+  }
+
+  // Handle legacy/bare section anchors (#branding, #website-packages, etc.)
+  const anchor = (hashStr || '').replace(/^#/, '');
+  if (route === 'home' && anchor && !anchor.startsWith('/')) {
+    const anchorEl = document.getElementById(anchor);
+    const ownerView = anchorEl ? anchorEl.closest('[data-view]') : null;
+    if (ownerView) {
+      route = ownerView.dataset.view;
+    }
+  }
+
+  return {
+    route,
+    path: route === 'home' ? '/' : `/${route}`,
+    anchor,
+    query: new URLSearchParams(searchStr || '')
+  };
+}
+
+/**
+ * Clean-URL Internal Router (HTML5 History API + View-Transition Curtain)
+ */
+function initInternalRouter({ onRouteChange } = {}) {
+  const views = Array.from(document.querySelectorAll('.spa-view[data-view]'));
+  if (!views.length) return () => {};
+
+  const isFileProtocol = window.location.protocol === 'file:';
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  const robotsMeta = document.querySelector('meta[name="robots"]');
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  const ogUrlMeta = document.querySelector('meta[property="og:url"]');
 
   const curtain = document.createElement('div');
   curtain.className = 'arte-page-curtain';
   curtain.setAttribute('aria-hidden', 'true');
   document.body.appendChild(curtain);
 
-  window.addEventListener('pageshow', () => {
-    curtain.classList.remove('is-active');
-  });
+  let activeRouteName = '';
+  let virtualLocation = { pathname: '/', search: '', hash: window.location.hash || '' };
 
-  document.querySelectorAll('a[href]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      if (
-        event.defaultPrevented ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey ||
-        link.target === '_blank'
-      ) {
+  // Clean up legacy /index.html or #/... URLs immediately on HTTP/HTTPS loads
+  if (!isFileProtocol) {
+    const rawHash = window.location.hash || '';
+    if (rawHash.startsWith('#/')) {
+      const migrated = rawHash.slice(1);
+      window.history.replaceState(null, '', migrated || '/');
+    } else if (/\/index\.html$/i.test(window.location.pathname)) {
+      const cleanInitial = '/' + (window.location.search || '') + (window.location.hash || '');
+      window.history.replaceState(null, '', cleanInitial);
+    } else if (window.location.pathname.length > 1 && window.location.pathname.endsWith('/')) {
+      const noSlash =
+        window.location.pathname.replace(/\/+$/, '') +
+        (window.location.search || '') +
+        (window.location.hash || '');
+      window.history.replaceState(null, '', noSlash);
+    }
+  }
+
+  const updateNavCurrent = (routeName) => {
+    const targetPath = routeName === 'home' ? '/' : `/${routeName}`;
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((link) => {
+      if (link.getAttribute('href') === targetPath) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const scrollToTarget = (anchor) => {
+    if (anchor) {
+      const targetEl = document.getElementById(anchor);
+      if (targetEl) {
+        window.requestAnimationFrame(() => {
+          targetEl.scrollIntoView({
+            behavior: prefersReduced ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        });
         return;
       }
+    }
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
 
-      const rawHref = link.getAttribute('href') || '';
-      if (
-        !rawHref ||
-        rawHref.startsWith('#') ||
-        rawHref.startsWith('mailto:') ||
-        rawHref.startsWith('tel:') ||
-        rawHref.startsWith('javascript:')
+  const getCurrentLocation = () =>
+    isFileProtocol
+      ? virtualLocation
+      : {
+          pathname: window.location.pathname,
+          search: window.location.search,
+          hash: window.location.hash
+        };
+
+  const applyRoute = () => {
+    const loc = getCurrentLocation();
+    const parsed = parseAppRoute(loc.pathname, loc.search, loc.hash);
+    const viewChanged = parsed.route !== activeRouteName;
+    activeRouteName = parsed.route;
+
+    views.forEach((view) => {
+      const match = view.dataset.view === parsed.route;
+      view.hidden = !match;
+      view.classList.toggle('is-active', match);
+    });
+
+    const meta = ROUTE_META[parsed.route] || ROUTE_META.home;
+    document.title = meta.title;
+    if (metaDesc) {
+      metaDesc.setAttribute('content', meta.description);
+    }
+    if (robotsMeta) {
+      robotsMeta.setAttribute('content', parsed.route === '404' ? 'noindex, follow' : 'index, follow');
+    }
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', `${SITE_ORIGIN}${parsed.path}`);
+    }
+    if (ogUrlMeta) {
+      ogUrlMeta.setAttribute('content', `${SITE_ORIGIN}${parsed.path}`);
+    }
+
+    updateNavCurrent(parsed.route);
+
+    // Ensure mobile menu closes cleanly on navigation
+    const toggleBtn = document.querySelector('[data-nav-toggle]');
+    const mobileNav = document.querySelector('[data-mobile-nav]');
+    if (toggleBtn && mobileNav) {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      mobileNav.classList.remove('is-open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    }
+
+    // Reveal elements already inside initial viewport of newly activated view
+    const activeView = views.find((v) => v.dataset.view === parsed.route);
+    if (activeView) {
+      window.requestAnimationFrame(() => {
+        activeView.querySelectorAll('.reveal').forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.96) {
+            el.classList.add('is-revealed');
+          }
+        });
+        activeView.querySelectorAll('.heading-mask').forEach((mask) => {
+          const rect = mask.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.96) {
+            mask.classList.add('is-revealed');
+          }
+        });
+      });
+    }
+
+    if (typeof onRouteChange === 'function') {
+      onRouteChange(parsed, { viewChanged });
+    }
+
+    scrollToTarget(parsed.anchor);
+    window.dispatchEvent(new Event('scroll'));
+  };
+
+  const navigateTo = (destPathname, destSearch, destHash) => {
+    const parsedTarget = parseAppRoute(destPathname, destSearch, destHash);
+    const fullDest = `${destPathname}${destSearch}${destHash}`;
+
+    const commit = () => {
+      if (isFileProtocol) {
+        virtualLocation = { pathname: destPathname, search: destSearch, hash: destHash };
+      } else if (
+        window.location.pathname !== destPathname ||
+        window.location.search !== destSearch ||
+        window.location.hash !== destHash
       ) {
-        return;
+        window.history.pushState({ route: parsedTarget.route }, '', fullDest);
       }
+      applyRoute();
+    };
 
-      const targetUrl = new URL(link.href, window.location.href);
-      if (targetUrl.origin !== window.location.origin) return;
-      if (
-        targetUrl.pathname === window.location.pathname &&
-        targetUrl.search === window.location.search &&
-        targetUrl.hash
-      ) {
-        return;
-      }
-
-      event.preventDefault();
+    if (parsedTarget.route !== activeRouteName && !prefersReduced) {
       curtain.classList.add('is-active');
       window.setTimeout(() => {
-        window.location.href = targetUrl.href;
-      }, 190);
-    });
+        commit();
+        window.requestAnimationFrame(() => {
+          curtain.classList.remove('is-active');
+        });
+      }, 150);
+    } else {
+      commit();
+    }
+  };
+
+  // Initial route activation
+  applyRoute();
+  window.addEventListener('popstate', applyRoute);
+
+  // Intercept clean internal URL clicks without full page reloads
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (
+      !link ||
+      event.defaultPrevented ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      link.target === '_blank'
+    ) {
+      return;
+    }
+
+    const rawHref = (link.getAttribute('href') || '').trim();
+    if (
+      !rawHref ||
+      rawHref.startsWith('#') ||
+      rawHref.startsWith('mailto:') ||
+      rawHref.startsWith('tel:') ||
+      rawHref.startsWith('javascript:')
+    ) {
+      return;
+    }
+
+    // Parse relative/root-relative internal paths cleanly on both http(s) and file://
+    const baseOrigin = isFileProtocol ? SITE_ORIGIN : window.location.origin;
+    const url = new URL(rawHref, baseOrigin);
+    if (url.origin !== baseOrigin) return;
+
+    event.preventDefault();
+    navigateTo(url.pathname, url.search, url.hash);
   });
+
+  return applyRoute;
 }
 
 /**
@@ -589,85 +828,87 @@ function initBackToTop() {
 }
 
 /**
- * Portfolio Category Filtering with Sliding Neon Glider Pill
+ * Portfolio Category Filtering with Sliding Neon Glider Pill (Scoped per Section)
  */
 function initPortfolioFiltering() {
-  const filterBar = document.querySelector('.filter-bar');
-  const filterButtons = document.querySelectorAll('[data-filter]');
-  const projectCards = document.querySelectorAll('[data-category]');
-  if (!filterButtons.length || !projectCards.length) return;
+  const filterBars = Array.from(document.querySelectorAll('.filter-bar'));
+  if (!filterBars.length) return [];
 
-  let glider = null;
-  if (filterBar) {
-    glider = document.createElement('span');
+  const controllers = [];
+
+  filterBars.forEach((filterBar) => {
+    const scope = filterBar.closest('section') || document;
+    const filterButtons = Array.from(filterBar.querySelectorAll('[data-filter]'));
+    const projectCards = Array.from(scope.querySelectorAll('[data-category]'));
+    if (!filterButtons.length || !projectCards.length) return;
+
+    const glider = document.createElement('span');
     glider.className = 'filter-glider';
     glider.setAttribute('aria-hidden', 'true');
     filterBar.insertBefore(glider, filterBar.firstChild);
     filterBar.classList.add('has-glider');
-  }
 
-  const positionGlider = (activeBtn) => {
-    if (!glider || !activeBtn) return;
-    glider.style.width = `${activeBtn.offsetWidth}px`;
-    glider.style.height = `${activeBtn.offsetHeight}px`;
-    glider.style.transform = `translate3d(${activeBtn.offsetLeft}px, ${activeBtn.offsetTop}px, 0)`;
-  };
+    const positionGlider = (activeBtn) => {
+      if (!glider || !activeBtn || activeBtn.offsetWidth === 0) return;
+      glider.style.width = `${activeBtn.offsetWidth}px`;
+      glider.style.height = `${activeBtn.offsetHeight}px`;
+      glider.style.transform = `translate3d(${activeBtn.offsetLeft}px, ${activeBtn.offsetTop}px, 0)`;
+    };
 
-  const applyFilter = (category, animateCards = false) => {
-    let activeBtn = null;
+    const applyFilter = (category, animateCards = false) => {
+      let activeBtn = null;
+      filterButtons.forEach((btn) => {
+        const isActive = btn.dataset.filter === category;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+        if (isActive) activeBtn = btn;
+      });
+
+      positionGlider(activeBtn);
+
+      projectCards.forEach((card) => {
+        const cardCategories = (card.dataset.category || '').split(',').map((c) => c.trim());
+        const matches = category === 'all' || cardCategories.includes(category);
+        card.classList.toggle('is-hidden', !matches);
+        if (matches && animateCards) {
+          card.classList.remove('is-filtering-in');
+          void card.offsetWidth;
+          card.classList.add('is-filtering-in');
+        }
+      });
+    };
+
     filterButtons.forEach((btn) => {
-      const isActive = btn.dataset.filter === category;
-      btn.classList.toggle('is-active', isActive);
-      btn.setAttribute('aria-pressed', String(isActive));
-      if (isActive) activeBtn = btn;
+      btn.addEventListener('click', () => {
+        applyFilter(btn.dataset.filter || 'all', true);
+      });
     });
 
-    positionGlider(activeBtn);
+    const reposition = () => {
+      const active = filterBar.querySelector('.filter-btn.is-active');
+      positionGlider(active);
+    };
 
-    projectCards.forEach((card) => {
-      const cardCategories = (card.dataset.category || '').split(',').map((c) => c.trim());
-      const matches = category === 'all' || cardCategories.includes(category);
-      card.classList.toggle('is-hidden', !matches);
-      if (matches && animateCards) {
-        card.classList.remove('is-filtering-in');
-        void card.offsetWidth;
-        card.classList.add('is-filtering-in');
+    window.addEventListener('resize', reposition);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reposition);
+    }
+    window.addEventListener('load', reposition);
+
+    const refresh = (requestedCategory) => {
+      const hasMatch =
+        requestedCategory && filterButtons.some((b) => b.dataset.filter === requestedCategory);
+      if (hasMatch) {
+        applyFilter(requestedCategory, false);
+      } else {
+        window.requestAnimationFrame(reposition);
       }
-    });
-  };
+    };
 
-  filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      applyFilter(btn.dataset.filter || 'all', true);
-    });
+    controllers.push({ scope, refresh, reposition });
   });
 
-  window.addEventListener('resize', () => {
-    const active = document.querySelector('.filter-btn.is-active');
-    positionGlider(active);
-  });
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => {
-      positionGlider(document.querySelector('.filter-btn.is-active'));
-    });
-  }
-  window.addEventListener('load', () => {
-    positionGlider(document.querySelector('.filter-btn.is-active'));
-  });
-
-  // Support deep-link query param ?category=branding
-  const params = new URLSearchParams(window.location.search);
-  const initialCategory = params.get('category');
-  const matchingBtn = initialCategory
-    ? Array.from(filterButtons).find((b) => b.dataset.filter === initialCategory)
-    : null;
-
-  if (matchingBtn) {
-    applyFilter(initialCategory, false);
-  } else {
-    positionGlider(document.querySelector('.filter-btn.is-active'));
-  }
+  return controllers;
 }
 
 /**
@@ -817,23 +1058,29 @@ function initFaqAccordions() {
 }
 
 /**
- * Scroll-Spy Dock & Active Highlight for Services Page Jump Pills
+ * Scroll-Spy Dock & Active Highlight for Services View Jump Pills
  */
 function initServiceScrollSpy() {
-  const jumpNav = document.querySelector('.page-jump-nav');
-  if (!jumpNav) return;
+  const servicesView = document.querySelector('[data-view="services"]');
+  const jumpNav = (servicesView || document).querySelector('.page-jump-nav');
+  if (!jumpNav) return null;
 
-  const pills = Array.from(jumpNav.querySelectorAll('.page-jump-pill[href^="#"]'));
-  if (!pills.length) return;
+  const pills = Array.from(jumpNav.querySelectorAll('.page-jump-pill[href*="#"]'));
+  if (!pills.length) return null;
+
+  const getSectionId = (pill) => {
+    const href = pill.getAttribute('href') || '';
+    return href.split('#').pop();
+  };
 
   const sections = pills
-    .map((pill) => document.querySelector(pill.getAttribute('href')))
+    .map((pill) => document.getElementById(getSectionId(pill)))
     .filter(Boolean);
-  if (!sections.length) return;
+  if (!sections.length) return null;
 
-  // Create floating scroll-spy dock for desktop while scrolling past hero
+  // Create floating scroll-spy dock for desktop while scrolling past Services hero
   const dock = document.createElement('nav');
-  dock.className = 'service-spy-dock';
+  dock.className = 'service-spy-dock is-route-hidden';
   dock.setAttribute('aria-label', 'Active service section indicator');
 
   pills.forEach((pill) => {
@@ -846,7 +1093,7 @@ function initServiceScrollSpy() {
 
   const setActiveSection = (id) => {
     allLinks.forEach((link) => {
-      link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+      link.classList.toggle('is-active', getSectionId(link) === id);
     });
   };
 
@@ -863,7 +1110,7 @@ function initServiceScrollSpy() {
     );
     sections.forEach((sec) => sectionObserver.observe(sec));
 
-    const hero = document.querySelector('.page-hero');
+    const hero = (servicesView || document).querySelector('.page-hero');
     if (hero) {
       const heroObserver = new IntersectionObserver(
         (entries) => {
@@ -876,6 +1123,12 @@ function initServiceScrollSpy() {
       heroObserver.observe(hero);
     }
   }
+
+  return {
+    setRouteActive: (isServices) => {
+      dock.classList.toggle('is-route-hidden', !isServices);
+    }
+  };
 }
 
 /**
@@ -1014,7 +1267,7 @@ function initContactForm() {
   };
 
   const setFieldError = (field, message) => {
-    const errorEl = form.querySelector(`[data-error-for="${field.name}"]`);
+    const errorEl = form.querySelector(`[data-error-for="${field.id}"]`);
     if (message) {
       field.setAttribute('aria-invalid', 'true');
       if (errorEl) {
@@ -1031,7 +1284,7 @@ function initContactForm() {
   };
 
   const validateField = (field) => {
-    const rule = validators[field.name];
+    const rule = validators[field.id];
     if (!rule) return true;
     const result = rule(field.value);
     if (result === true) {
@@ -1043,8 +1296,8 @@ function initContactForm() {
   };
 
   // Validate on blur & re-validate on input if previously invalid
-  Object.keys(validators).forEach((name) => {
-    const field = form.elements[name];
+  Object.keys(validators).forEach((fieldId) => {
+    const field = document.getElementById(fieldId);
     if (!field) return;
 
     field.addEventListener('blur', () => validateField(field));
@@ -1076,8 +1329,8 @@ function initContactForm() {
     let firstInvalidField = null;
     let allValid = true;
 
-    Object.keys(validators).forEach((name) => {
-      const field = form.elements[name];
+    Object.keys(validators).forEach((fieldId) => {
+      const field = document.getElementById(fieldId);
       if (!field) return;
       const valid = validateField(field);
       if (!valid) {
@@ -1100,8 +1353,6 @@ function initContactForm() {
         : ARTE_CONFIG.formEndpoint.trim();
 
     if (!endpoint) {
-      // Static HTML cannot securely send emails by itself:
-      // Explicitly communicate that no live backend endpoint is connected yet.
       showStatus(
         'All fields validated successfully. Form backend is not connected yet — connect a Formspree endpoint in contact.html or ARTE_CONFIG.formEndpoint (js/script.js) to enable live submissions.',
         true
@@ -1113,36 +1364,18 @@ function initContactForm() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending Enquiry...';
 
+    const fullName = document.getElementById('fullName').value.trim();
+    const businessName = document.getElementById('businessName').value.trim();
+    const serviceRequired = document.getElementById('serviceRequired').value;
+    const subjectField = form.querySelector('[data-form-subject]');
+    if (subjectField) {
+      subjectField.value = `ARTE Enquiry: ${serviceRequired} — ${businessName} (${fullName})`;
+    }
+
     try {
-      const fullName = form.elements.fullName.value.trim();
-      const businessName = form.elements.businessName.value.trim();
-      const clientEmail = form.elements.email.value.trim();
-      const phone = form.elements.phone.value.trim();
-      const businessType = form.elements.businessType.value;
-      const serviceRequired = form.elements.serviceRequired.value;
-      const selectedPackage =
-        (form.elements.selectedPackage && form.elements.selectedPackage.value) ||
-        'Not Decided / Custom Proposal';
-      const projectDetails = form.elements.projectDetails.value.trim();
-
-      const submissionData = new FormData();
-      submissionData.append(
-        '_subject',
-        `ARTE Enquiry: ${serviceRequired} — ${businessName} (${fullName})`
-      );
-      submissionData.append('_replyto', clientEmail);
-      submissionData.append('Full Name', fullName);
-      submissionData.append('Business / Clinic Name', businessName);
-      submissionData.append('email', clientEmail);
-      submissionData.append('Phone Number', phone);
-      submissionData.append('Business Type', businessType);
-      submissionData.append('Service Required', serviceRequired);
-      submissionData.append('Selected Package', selectedPackage);
-      submissionData.append('Project Details', projectDetails);
-
       const response = await fetch(endpoint, {
         method: 'POST',
-        body: submissionData,
+        body: new FormData(form),
         headers: {
           Accept: 'application/json'
         }
@@ -1157,16 +1390,30 @@ function initContactForm() {
           false
         );
       } else {
+        const errData = await response.json().catch(() => null);
+        const errMsg =
+          (errData && errData.error) ||
+          (errData && Array.isArray(errData.errors) && errData.errors[0] && errData.errors[0].message) ||
+          '';
+
+        // If Formspree blocks AJAX (e.g. reCAPTCHA / free-tier AJAX check), submit natively
+        if (response.status === 403 || /ajax|captcha|recaptcha/i.test(errMsg)) {
+          form.setAttribute('action', endpoint);
+          form.submit();
+          return;
+        }
+
         showStatus(
-          'Unable to submit your enquiry right now. Please verify the form endpoint configuration or reach out directly using the studio contact details.',
+          errMsg
+            ? `Submission error: ${errMsg}`
+            : 'Unable to submit your enquiry right now. Please try again or reach out directly via email or WhatsApp.',
           true
         );
       }
     } catch (error) {
-      showStatus(
-        'A network error prevented submission. Please check your connection and try again.',
-        true
-      );
+      // Fallback to native POST submission if cross-origin fetch is blocked
+      form.setAttribute('action', endpoint);
+      form.submit();
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalBtnText;
@@ -1175,20 +1422,27 @@ function initContactForm() {
 }
 
 /**
- * Preselect Service and Package on Contact Page from URL Parameters
+ * Preselect Service and Package on Contact View from Route Query Parameters
  */
-function initPackagePreselection() {
+function initPackagePreselection(paramsInput) {
   const form = document.querySelector('[data-contact-form]');
   if (!form) return;
 
-  const serviceField = form.elements.serviceRequired;
-  const packageField = form.elements.selectedPackage;
+  const serviceField = document.getElementById('serviceRequired');
+  const packageField = document.getElementById('selectedPackage');
   const banner = form.querySelector('[data-package-banner]');
 
-  const params = new URLSearchParams(window.location.search);
+  const params =
+    paramsInput instanceof URLSearchParams
+      ? paramsInput
+      : new URLSearchParams(window.location.search);
   const serviceParam = params.get('service');
   const packageParam = params.get('package');
-  if (!serviceParam && !packageParam) return;
+
+  if (!serviceParam && !packageParam) {
+    if (banner) banner.classList.remove('is-visible');
+    return;
+  }
 
   let matchedService = '';
   let matchedPackage = '';
@@ -1238,15 +1492,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroParallax();
   initStudioMarquee();
   initMagneticCursor();
-  initPageTransitions();
-  initServiceScrollSpy();
+  const serviceSpy = initServiceScrollSpy();
   initBackToTop();
-  initPortfolioFiltering();
+  const portfolioFilters = initPortfolioFiltering();
   initProjectModal();
   initFaqAccordions();
   initWhatsAppButton();
-  initPackagePreselection();
   initContactForm();
+
+  initInternalRouter({
+    onRouteChange: (parsed) => {
+      if (serviceSpy) {
+        serviceSpy.setRouteActive(parsed.route === 'services');
+      }
+
+      if (Array.isArray(portfolioFilters)) {
+        const category = parsed.route === 'portfolio' ? parsed.query.get('category') : null;
+        portfolioFilters.forEach((ctrl) => ctrl.refresh(category));
+      }
+
+      if (parsed.route === 'contact') {
+        initPackagePreselection(parsed.query);
+      }
+    }
+  });
 
   // Expose non-sensitive config reference for integration setup
   window.ARTEStudio = Object.freeze({
