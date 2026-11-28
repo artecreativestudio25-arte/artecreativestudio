@@ -3302,3 +3302,22 @@ ul, ol {
   }
 }
 
+/* ==========================================================================
+   Single-Page Internal Routing Views
+   ========================================================================== */
+
+.spa-view[hidden] {
+  display: none !important;
+}
+
+.spa-view.is-active {
+  display: block;
+}
+
+.service-spy-dock.is-route-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
